@@ -1,0 +1,19 @@
+{
+  "name": "proyecto-beo",
+  "version": "0.0.0",
+  "description": "-----------------",
+  "main": "index.js",
+  "scripts": {
+    "build": "npm install express nodemon path",
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^5.1.0",
+    "nodemon": "^3.1.10",
+    "path": "^0.12.7"
+  }
+}
