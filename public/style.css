@@ -1,0 +1,59 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+  font-family: "Jersey 15", sans-serif;
+  font-weight: 100;
+}
+.main-page {
+  min-width: 100vw;
+  min-height: 100vh;
+  background-color: black;
+  color: white;
+  overflow: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.logo {
+  font-size: 75px;
+  animation: bounce 2s linear infinite;
+  cursor: default;
+}
+.buttons {
+  display: flex;
+  gap: 20px;
+  padding-top: 15px;
+}
+.option-button {
+  background-color: #0000;
+  border: 2px solid rgba(255, 255, 255, 0.4);
+  border-radius: 10px;
+  font-size: 30px;
+  color: white;
+  padding: 3px 10px;
+  width: 125px;
+  cursor: pointer;
+  transition: 250ms;
+}
+.option-button:hover {
+  transform: scale(1.1);
+}
+.ad {
+  position: fixed;
+  bottom: 5px;
+  text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 12px;
+  font-style: italic;
+  color: white;
+  width: 100%;
+  opacity: 0.5;
+}
+
+.menu {
+  position: fixed;
+  top: 0;
+}

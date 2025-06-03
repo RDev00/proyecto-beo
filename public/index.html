@@ -1,14 +1,43 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Jersey+15&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" href="./animations.css">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>---</title>
+  <title> Mathaxar </title>
 </head>
 <body>
   <main class="main-page">
-    <h1 class="logo"></h1>
+    <h1 class="logo"> Mathaxar </h1>
+    <div class="buttons">
+      <button type="button" class="option-button" id="start"> Iniciar </button>
+      <button type="button" class="option-button" id="options" > Opciones </button>
+    </div>
   </main>
+  <p class="ad"> © Juego de codigo abierto, puedes editarlo a gusto propio y mirar dentro de el </p>
+  <div class="menu" id="options">
+    <h2> Configuracion </h2> <br />
+    <h3> Sonido </h3> <br />
+
+    <input type="range" name="general" id="general" class="volumeLine">
+    <button class="volumeButton"> <img src="" alt="" class="icon"> </button>
+    <label for="general" class="labelButton"> General </label> <br />
+
+    <input type="range" name="sfx" id="sfx" class="volumeLine">
+    <button class="volumeButton"> <img src="" alt="" class="icon"> </button>
+    <label for="sfx" class="labelButton"> Ambiente </label> <br />
+    
+    <input type="range" name="music" id="music" class="volumeLine">
+    <button class="volumeButton"> <img src="" alt="" class="icon"> </button>
+    <label for="music" class="labelButton"> Musica </label> <br />
+
+    <button class="menuButton"> Salir </button> <br />
+    <button class="menuButton"> Guardar </button> <br />
+  </div>
 </body>
+<script type="module" src="./scripts/main.js"></script>
 </html>
