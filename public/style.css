@@ -55,50 +55,5 @@
 
 .menu {
   position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 10;
-  padding: 30px 15px;
-  border-radius: 15px;
-  background-color: darkgray;
-  text-align: center;
-  display: none;
-  flex-direction: column;
-  gap: 5px;
+  top: 0;
 }
-.volume {
-  position: relative;
-  display: flex;
-  margin: 5px 0;
-  width: 150px;
-  justify-content: center;
-  align-items: center;
-  gap: 5px;
-}
-.volumeButton {
-  aspect-ratio: 1/1;
-  width: 75px;
-  border: none;
-  background-color: #0000;
-}
-.volume label {
-  position: absolute;
-  transform: translateY(-10px);
-  left: 0;
-}
-.menuButton {
-  width: 45%;
-  border: none;
-  background-color: rgba(0, 0, 0, 0.2);
-  padding: 3px;
-  font-size: large;
-  cursor: pointer;
-  z-index: 11;
-}
-.menuButton:hover {
-  filter: brightness(0.5);
-}
-
-.showMenu { animation: showMenu 0.5s ease-in-out forwards; }
-.hideMenu { animation: hideMenu 0.5s ease-in-out forwards; }
