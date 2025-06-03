@@ -19,24 +19,32 @@
     </div>
   </main>
   <p class="ad"> © Juego de codigo abierto, puedes editarlo a gusto propio y mirar dentro de el </p>
-  <div class="menu" id="options">
-    <h2> Configuracion </h2> <br />
-    <h3> Sonido </h3> <br />
+  <div class="menu" id="optionsMenu">
+    <h2> Configuracion </h2>
+    <h3> Sonido </h3>
 
-    <input type="range" name="general" id="general" class="volumeLine">
-    <button class="volumeButton"> <img src="" alt="" class="icon"> </button>
-    <label for="general" class="labelButton"> General </label> <br />
+    <div class="volume">    
+      <input type="range" name="general" id="general" class="volumeLine">
+      <button class="volumeButton"> <img src="" alt="" class="icon"> </button>
+      <label for="general" class="labelButton"> General </label>
+    </div>
 
-    <input type="range" name="sfx" id="sfx" class="volumeLine">
-    <button class="volumeButton"> <img src="" alt="" class="icon"> </button>
-    <label for="sfx" class="labelButton"> Ambiente </label> <br />
-    
-    <input type="range" name="music" id="music" class="volumeLine">
-    <button class="volumeButton"> <img src="" alt="" class="icon"> </button>
-    <label for="music" class="labelButton"> Musica </label> <br />
+    <div class="volume">
+      <input type="range" name="sfx" id="sfx" class="volumeLine">
+      <button class="volumeButton"> <img src="" alt="" class="icon"> </button>
+      <label for="sfx" class="labelButton"> Ambiente </label>
+    </div>
 
-    <button class="menuButton"> Salir </button> <br />
-    <button class="menuButton"> Guardar </button> <br />
+    <div class="volume">
+      <input type="range" name="music" id="music" class="volumeLine">
+      <button class="volumeButton"> <img src="" alt="" class="icon"> </button>
+      <label for="music" class="labelButton"> Musica </label>
+    </div>
+
+    <div>
+      <button id="exit" class="menuButton"> Salir </button>
+      <button id="save" class="menuButton"> Guardar </button>
+    </div>
   </div>
 </body>
 <script type="module" src="./scripts/main.js"></script>

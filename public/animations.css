@@ -3,3 +3,13 @@
   50% { transform: translateY(3px); }
   100% { transform: translateY(0); }
 }
+
+@keyframes showMenu {
+  0% { transform: translate(-50%, 100%); opacity: 0; }
+  100% { transform: translate(-50%, -50%); opacity: 1; }
+}
+
+@keyframes hideMenu {
+  0% { transform: translate(-50%, -50%); opacity: 1; }
+  100% { transform: translate(-50%, 100%); opacity: 0; }
+}
