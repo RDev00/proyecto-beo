@@ -18,6 +18,7 @@ body { background-color: black; }
   border: 1px solid red;
   top: 0;
   left: 0;
+  transform: translate(20vw, 50vh);
 }
 .shoot {
   aspect-ratio: 2 / 1;

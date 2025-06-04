@@ -1,6 +1,7 @@
 export default function playerMove(player) {
-  let x = 0;
-  let y = 0;
+  let playerRect = player.getBoundingClientRect();
+  let x = playerRect.x;
+  let y = playerRect.y;
   const speed = 5;
   const keysPressed = new Set();
 
