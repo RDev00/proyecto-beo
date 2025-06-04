@@ -1,11 +1,24 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Jersey+15&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="game.css">
+  <link rel="stylesheet" href="animations.css">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title> Game </title>
 </head>
 <body>
-  
+  <header class="navbar">
+    <button type="button" class="button" id="back">B</button>
+  </header>
+  <main class="main" id="game">
+    <span class="player" id="player"></span>
+  </main>
+    <!--Particulas-->
+    <canvas id="canvas"></canvas>
 </body>
+<script type="module" src="./scripts/game.js"></script>
 </html>

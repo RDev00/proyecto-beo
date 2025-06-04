@@ -19,24 +19,28 @@
     </div>
   </main>
   <p class="ad"> © Juego de codigo abierto, puedes editarlo a gusto propio y mirar dentro de el </p>
-  <div class="menu" id="options">
-    <h2> Configuracion </h2> <br />
-    <h3> Sonido </h3> <br />
-
-    <input type="range" name="general" id="general" class="volumeLine">
-    <button class="volumeButton"> <img src="" alt="" class="icon"> </button>
-    <label for="general" class="labelButton"> General </label> <br />
-
-    <input type="range" name="sfx" id="sfx" class="volumeLine">
-    <button class="volumeButton"> <img src="" alt="" class="icon"> </button>
-    <label for="sfx" class="labelButton"> Ambiente </label> <br />
-    
-    <input type="range" name="music" id="music" class="volumeLine">
-    <button class="volumeButton"> <img src="" alt="" class="icon"> </button>
-    <label for="music" class="labelButton"> Musica </label> <br />
-
-    <button class="menuButton"> Salir </button> <br />
-    <button class="menuButton"> Guardar </button> <br />
+  <div class="menu" id="optionsMenu">
+    <h2> Configuracion </h2>
+    <h3> Sonido </h3>
+    <div class="volume">
+      <input type="range" name="general" id="general" class="volumeLine">
+      <button class="volumeButton"> <img src="" alt="" class="icon"> </button>
+      <label for="general" class="labelButton"> General </label>
+    </div>
+    <div class="volume">
+      <input type="range" name="sfx" id="sfx" class="volumeLine">
+      <button class="volumeButton"> <img src="" alt="" class="icon"> </button>
+      <label for="sfx" class="labelButton"> Ambiente </label>
+    </div>
+    <div class="volume">
+      <input type="range" name="music" id="music" class="volumeLine">
+      <button class="volumeButton"> <img src="" alt="" class="icon"> </button>
+      <label for="music" class="labelButton"> Musica </label>
+    </div>
+    <div class="buttonsMenu">
+      <button type="button" id="exit" class="buttonMenu"> Salir </button>
+      <button type="button" id="save" class="buttonMenu"> Guardar </button>
+    </div>
   </div>
 </body>
 <script type="module" src="./scripts/main.js"></script>

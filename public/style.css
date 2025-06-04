@@ -55,5 +55,65 @@
 
 .menu {
   position: fixed;
-  top: 0;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: none;
+  flex-direction: column;
+  padding: 30px 10px;
+  border-radius: 10px;
+  background-color: darkgray;
+  justify-content: center;
+  align-items: center;
+  gap: 2px;
+  width: 200px;
+}
+.volume {
+  display: flex;
+  position: relative;
+  margin: 5px 0;
+  width: 99%;
+  justify-content: center;
+  align-items: center;
+}
+.volume label {
+  position: absolute;
+  transform: translateY(-100%);
+  left: 0;
+}
+.volumeLine {
+  width: 85%;
+  color: white;
+}
+.volumeButton {
+  aspect-ratio: 1 / 1;
+  width: 14%;
+  border: none;
+  background-color: #0000;
+}
+.buttonsMenu {
+  width: 99%;
+  display: flex;
+  gap: 2%;
+  margin-top: 10px;
+}
+.buttonMenu {
+  width: 49%;
+  aspect-ratio: 3 / 1;
+  font-size: 15px;
+  border: none;
+  background-color: rgba(0, 0, 0, 0.2);
+  color: black;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 250ms ease-in-out;
+}
+.buttonMenu:hover {
+  transform: scale(1.1);
+}
+#exit:active {
+  background-color: red;
+}
+#save:active {
+  background-color: green;
 }

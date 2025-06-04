@@ -1,0 +1,28 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body { background-color: black; }
+.button {
+  aspect-ratio: 1 / 1;
+  width: 25px;
+  background-color: #0000;
+  border: none;
+  color: white;
+}
+.player {
+  aspect-ratio: 1 / 1;
+  width: 30px;
+  position: fixed;
+  border: 1px solid red;
+  top: 0;
+  left: 0;
+}
+.shoot {
+  aspect-ratio: 2 / 1;
+  position: fixed;
+  background-color: red;
+  width: 20px;
+  top: 9px;
+}
