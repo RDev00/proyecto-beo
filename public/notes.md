@@ -1,4 +1,5 @@
 # Falta por hacer:
-- Agregar los shoots a map
-- Hacer que se muevan los shoots
-- Agregar enemigos
+- Movimento de enemigo más funcional
+- Desaparicion de enemigos
+- Adicion de informacion sobre el tema
+- Agregacion de estructuras

@@ -21,7 +21,7 @@ export default function createEnemy(){
     enemyBox.style.transform = `translate(${posX}px, ${position}px)`;
   }
 
-  for (let i = 0; i <= 5; i++) {
+  for (let i = 0; i <= 10; i++) {
     requestAnimationFrame(moveEnemy);
   }
 }
