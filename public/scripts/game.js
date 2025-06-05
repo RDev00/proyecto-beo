@@ -16,5 +16,8 @@ playerMove(player);
 
 import playerShoot from './game_functions/player/playerShoot.js';
 const map = document.getElementById('game');
-let objects = [];
+let objects = document.getElementsByClassName('enemy');
 playerShoot(player, map, objects);
+
+import enemyGeneration from './game_functions/enemys/enemyGeneration.js';
+enemyGeneration();

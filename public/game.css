@@ -15,18 +15,19 @@ body { background-color: black; }
 }
 .player {
   aspect-ratio: 1 / 1;
-  width: 30px;
+  width: 40px;
   position: fixed;
-  background-color: red;
+  background-image: url('./assets/player.png');
+  background-size: cover;
   top: 0;
   left: 0;
   transform: translate(20vw, 50vh);
 }
 .shoot {
-  aspect-ratio: 2 / 1;
   position: fixed;
   background-color: red;
   width: 20px;
+  height: 7px;
   top: 9px;
 }
 .deathmsg {
@@ -73,3 +74,13 @@ body { background-color: black; }
 .deathmsg button:active {
   background-color: rgba(0, 255, 0, 0.5);
 }
+
+
+.enemy {
+  aspect-ratio: 1 / 1;
+  position: fixed;
+  width: 40px;
+  background-size: cover;
+}
+.enemy01 { background-image: url('./assets/enemy_01.png'); }
+.enemy02 { background-image: url('./assets/enemy_02.png'); }

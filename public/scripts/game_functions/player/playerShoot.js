@@ -25,8 +25,8 @@ export default function playerShoot(player, map, targets) {
     points += 1;
     explode(probability, points);
     const playerRect = player.getBoundingClientRect();
-    let posX = playerRect.x + playerRect.width;
-    const posY = playerRect.y + playerRect.height / 2;
+    let posX = playerRect.x + playerRect.width - 25 ;
+    const posY = playerRect.y + playerRect.height - 24.8;
     const shoot = document.createElement('span');
     shoot.classList.add('shoot');
     shoot.style.position = 'fixed';
