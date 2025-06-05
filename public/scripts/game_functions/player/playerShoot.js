@@ -23,6 +23,8 @@ export default function playerShoot(player, map, targets) {
 
     probability -= 1;
     points += 1;
+    localStorage.setItem('points', points);
+    localStorage.setItem('probability', probability);
     explode(probability, points);
     const playerRect = player.getBoundingClientRect();
     let posX = playerRect.x + playerRect.width - 25 ;

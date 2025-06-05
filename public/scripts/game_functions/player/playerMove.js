@@ -1,10 +1,12 @@
 import verifyStatus from "./verifyStatus.js";
+import enemyLimit from './enemyLimit.js';
+import enemyColission from '../colissions/enemyColission.js';
 
 export default function playerMove(player) {
   let playerRect = player.getBoundingClientRect();
   let x = playerRect.x;
   let y = playerRect.y;
-  const speed = 5;
+  const speed = 7;
   const keysPressed = new Set();
 
   const playerWidth = player.offsetWidth;
@@ -34,6 +36,9 @@ export default function playerMove(player) {
     }
 
     animationId = requestAnimationFrame(movePlayer);
+    
+    enemyLimit();
+    enemyColission();
   }
 
   document.addEventListener('keydown', (event) => {

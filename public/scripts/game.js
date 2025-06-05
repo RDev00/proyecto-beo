@@ -1,4 +1,6 @@
 localStorage.removeItem('status');
+localStorage.removeItem('points');
+localStorage.removeItem('probability');
 
 import redirection from './functions/redirection.js';
 
@@ -16,8 +18,8 @@ playerMove(player);
 
 import playerShoot from './game_functions/player/playerShoot.js';
 const map = document.getElementById('game');
-let objects = document.getElementsByClassName('enemy');
-playerShoot(player, map, objects);
+let enemys = document.getElementsByClassName('enemy');
+playerShoot(player, map, enemys);
 
 import enemyGeneration from './game_functions/enemys/enemyGeneration.js';
 enemyGeneration();
