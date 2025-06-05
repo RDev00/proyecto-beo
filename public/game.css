@@ -2,6 +2,8 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: "Jersey 15", sans-serif;
+  font-weight: 100;
 }
 body { background-color: black; }
 .button {
@@ -15,7 +17,7 @@ body { background-color: black; }
   aspect-ratio: 1 / 1;
   width: 30px;
   position: fixed;
-  border: 1px solid red;
+  background-color: red;
   top: 0;
   left: 0;
   transform: translate(20vw, 50vh);
@@ -26,4 +28,48 @@ body { background-color: black; }
   background-color: red;
   width: 20px;
   top: 9px;
+}
+.deathmsg {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  max-width: 250px;
+  padding: 30px 15px;
+  color: black;
+  background-color: darkgray;
+  border-radius: 10px;
+  z-index: 99;
+  gap: 5px;
+  font-weight: 200;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.deathmsg h2 {
+  font-size: 40px;
+}
+.deathmsg p {
+  font-size: 20px;
+  opacity: 0.75;
+  color: black;
+}
+.deathmsg button {
+  font-size: 25px;
+  border: none;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 5px;
+  width: 70%;
+  margin-top: 10px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.5s ease-in-out;
+}
+.deathmsg button:hover {
+  transform: scale(1.05);
+}
+.deathmsg button:active {
+  background-color: rgba(0, 255, 0, 0.5);
 }

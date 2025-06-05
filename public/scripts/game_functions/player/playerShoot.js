@@ -1,6 +1,11 @@
-export default function playerShoot(player, map, targets = []) {
+import explode from "./explodeProbability.js";
+import verifyStatus from "./verifyStatus.js";
+
+export default function playerShoot(player, map, targets) {
   let probability = 100;
   const dmg = 5;
+  let speedShoot = 20;
+  let points = 0;
   function checkCollision(rect1, rect2) {
     return (
       rect1.x < rect2.x + rect2.width &&
@@ -10,18 +15,15 @@ export default function playerShoot(player, map, targets = []) {
     );
   }
 
-  function explotar(probability) {
-    const random = Math.random();
-    if (random < probability / 100) {
-      return console.log('Sobreviviste');
-    } else {
-      return console.log('Explotaste');
-    }
-  }
-
   function createShoot() {
-    explotar(probability);
+    let status = verifyStatus();
+    if(status === 'death') {
+      return;
+    }
+
     probability -= 1;
+    points += 1;
+    explode(probability, points);
     const playerRect = player.getBoundingClientRect();
     let posX = playerRect.x + playerRect.width;
     const posY = playerRect.y + playerRect.height / 2;
@@ -32,7 +34,7 @@ export default function playerShoot(player, map, targets = []) {
     shoot.style.top = `${posY}px`;
     map.appendChild(shoot);
     function moveShoot() {
-      posX += 5;
+      posX += speedShoot;
       shoot.style.left = `${posX}px`;
       const shootRect = shoot.getBoundingClientRect();
       for (const target of targets) {
@@ -51,5 +53,15 @@ export default function playerShoot(player, map, targets = []) {
     }
     requestAnimationFrame(moveShoot);
   }
+
+  function startShoot(key) {
+    if (key === '0'){
+      createShoot()
+    }
+  }
+
   document.addEventListener('mousedown', createShoot);
+  document.addEventListener('keydown', e => {
+    startShoot(e.key.toUpperCase());
+  });
 }

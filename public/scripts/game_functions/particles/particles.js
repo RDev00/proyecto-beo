@@ -5,6 +5,7 @@ export default function particles() {
   canvas.width = window.innerWidth;
   canvas.height = window.innerHeight;
   canvas.style.position = 'fixed';
+  canvas.style.zIndex = 1;
 
   const NUM_ESTRELLAS = 100;
   const VELOCIDAD = 300;

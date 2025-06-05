@@ -1,3 +1,5 @@
+import verifyStatus from "./verifyStatus.js";
+
 export default function playerMove(player) {
   let playerRect = player.getBoundingClientRect();
   let x = playerRect.x;
@@ -7,6 +9,7 @@ export default function playerMove(player) {
 
   const playerWidth = player.offsetWidth;
   const playerHeight = player.offsetHeight;
+  let animationId;
 
   function movePlayer() {
     const maxX = window.innerWidth - playerWidth;
@@ -23,7 +26,14 @@ export default function playerMove(player) {
     if (y > maxY) y = maxY;
 
     player.style.transform = `translate(${x}px, ${y}px)`;
-    requestAnimationFrame(movePlayer);
+
+    let status = verifyStatus();
+    if(status === 'death') {
+      cancelAnimationFrame(animationId);
+      return;
+    }
+
+    animationId = requestAnimationFrame(movePlayer);
   }
 
   document.addEventListener('keydown', (event) => {
@@ -34,5 +44,5 @@ export default function playerMove(player) {
     keysPressed.delete(event.key.toUpperCase());
   });
 
-  requestAnimationFrame(movePlayer);
+  animationId = requestAnimationFrame(movePlayer);
 }
