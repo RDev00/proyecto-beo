@@ -1,5 +1,5 @@
 import verifyStatus from "./verifyStatus.js";
-import enemyLimit from './enemyLimit.js';
+import enemyLimit from '../enemys/enemyLimit.js';
 import enemyColission from '../colissions/enemyColission.js';
 
 export default function playerMove(player) {

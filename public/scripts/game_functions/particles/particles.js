@@ -7,7 +7,7 @@ export default function particles() {
   canvas.style.position = 'fixed';
   canvas.style.zIndex = 1;
 
-  const NUM_ESTRELLAS = 100;
+  const NUM_ESTRELLAS = 20;
   const VELOCIDAD = 300;
 
   let estrellas = [];
