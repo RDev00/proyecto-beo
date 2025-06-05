@@ -24,5 +24,5 @@ playerShoot(player, map, enemys);
 import enemyGeneration from './game_functions/enemys/enemyGeneration.js';
 enemyGeneration();
 
-import createMetheor from './game_functions/metheors/createMetheor.js';
-createMetheor();
+import metheorGeneration from './game_functions/metheors/metheorGeneration.js';
+metheorGeneration();
