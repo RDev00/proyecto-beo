@@ -7,8 +7,8 @@ export default function createMetheor() {
   let metheorBox = document.createElement('span');
   metheorBox.classList.add('metheor');
 
-  const maxTop = window.innerHeight - 30;
-  let position = rng(30, maxTop);
+  const maxTop = window.innerHeight - 50;
+  let position = rng(50, maxTop);
   metheorBox.style.transform = `translate(${posX}px, ${position}px)`;
   function start() {
     map.appendChild(metheorBox);

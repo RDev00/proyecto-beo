@@ -74,7 +74,16 @@ body { background-color: black; }
 .deathmsg button:active {
   background-color: rgba(0, 255, 0, 0.5);
 }
-
+.deathmsg .info{
+  color: black;
+  text-align: center;
+  opacity: 0.8;
+  font-style: italic;
+}
+.deathmsg .info a {
+  filter: brightness(120);
+  color: darkblue;
+}
 
 .enemy {
   aspect-ratio: 1 / 1;

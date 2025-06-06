@@ -10,6 +10,10 @@ app.get('/game', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'game.html'));
 });
 
+app.get('/info', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'info.html'));
+});
+
 app.listen(PORT, () => {
   console.log(`App corriendo en ${PORT}`);
 })

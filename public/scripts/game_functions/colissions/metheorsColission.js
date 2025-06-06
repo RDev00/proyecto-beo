@@ -10,10 +10,10 @@ export default function metheorsColission(){
     const metheorRect = metheor.getBoundingClientRect();
 
     const colissionCondition =
-      metheorRect.x + 7 < playerRect.x + playerRect.width &&
-      metheorRect.x + metheorRect.width > playerRect.x + 7 &&
-      metheorRect.y + 7 < playerRect.y + playerRect.height &&
-      metheorRect.y + metheorRect.height > playerRect.y + 7;
+      metheorRect.x + 10 < playerRect.x + playerRect.width &&
+      metheorRect.x + metheorRect.width > playerRect.x + 10 &&
+      metheorRect.y + 10 < playerRect.y + playerRect.height &&
+      metheorRect.y + metheorRect.height > playerRect.y + 10;
 
     if (colissionCondition) {
       localStorage.setItem('status', 'death');
