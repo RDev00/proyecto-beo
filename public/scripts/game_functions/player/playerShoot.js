@@ -1,9 +1,8 @@
 import explode from "./explodeProbability.js";
 import verifyStatus from "./verifyStatus.js";
 
-export default function playerShoot(player, map, targets) {
+export default function playerShoot(player, map, targetsa, targetsb) {
   let probability = 100;
-  const dmg = 5;
   let speedShoot = 20;
   let points = 0;
   function checkCollision(rect1, rect2) {
@@ -39,10 +38,18 @@ export default function playerShoot(player, map, targets) {
       posX += speedShoot;
       shoot.style.left = `${posX}px`;
       const shootRect = shoot.getBoundingClientRect();
-      for (const target of targets) {
-        const targetRect = target.getBoundingClientRect();
-        if (checkCollision(shootRect, targetRect)) {
-          target.remove();
+      for (const targeta of targetsa) {
+        const targetRecta = targeta.getBoundingClientRect();
+        if (checkCollision(shootRect, targetRecta)) {
+          targeta.remove();
+          shoot.remove();
+          return;
+        }
+      }
+      for (const targetb of targetsb) {
+        const targetRectb = targetb.getBoundingClientRect();
+        if (checkCollision(shootRect, targetRectb)) {
+          targetb.remove();
           shoot.remove();
           return;
         }

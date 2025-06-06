@@ -18,8 +18,11 @@ playerMove(player);
 
 import playerShoot from './game_functions/player/playerShoot.js';
 const map = document.getElementById('game');
+
 let enemys = document.getElementsByClassName('enemy');
-playerShoot(player, map, enemys);
+let metheors = document.getElementsByClassName('metheor');
+
+playerShoot(player, map, enemys, metheors);
 
 import enemyGeneration from './game_functions/enemys/enemyGeneration.js';
 enemyGeneration();

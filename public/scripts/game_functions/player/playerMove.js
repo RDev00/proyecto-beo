@@ -1,6 +1,7 @@
 import verifyStatus from "./verifyStatus.js";
 import enemyLimit from '../enemys/enemyLimit.js';
 import enemyColission from '../colissions/enemyColission.js';
+import metheorsColission from "../colissions/metheorsColission.js";
 
 export default function playerMove(player) {
   let playerRect = player.getBoundingClientRect();
@@ -39,6 +40,7 @@ export default function playerMove(player) {
     
     enemyLimit();
     enemyColission();
+    metheorsColission();
   }
 
   document.addEventListener('keydown', (event) => {

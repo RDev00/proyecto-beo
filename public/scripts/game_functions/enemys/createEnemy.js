@@ -13,8 +13,8 @@ export default function createEnemy() {
     enemyBox.classList.add('enemy02');
   }
 
-  const maxTop = window.innerHeight - 100;
-  let position = rng(100, maxTop);
+  const maxTop = window.innerHeight - 30;
+  let position = rng(30, maxTop);
   enemyBox.style.transform = `translate(${posX}px, ${position}px)`;
   function start() {
     map.appendChild(enemyBox);

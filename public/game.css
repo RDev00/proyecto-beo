@@ -84,3 +84,10 @@ body { background-color: black; }
 }
 .enemy01 { background-image: url('./assets/enemy_01.png'); }
 .enemy02 { background-image: url('./assets/enemy_02.png'); }
+.metheor {
+  aspect-ratio: 1 / 1;
+  width: 50px;
+  position: fixed;
+  background-size: cover;
+  background-image: url('./assets/metheor.png');
+}
