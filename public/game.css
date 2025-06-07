@@ -174,5 +174,56 @@ body { background-color: black; }
 }
 .control img {
   aspect-ratio: 1 / 1;
+  width: 40px;
+}
+
+.moveButtons {
+  position: fixed;
+  left: 10px;
+  bottom: 60px;
+  z-index: 98;
+  transition: 1s ease-in-out;
+}
+.moveButton {
+  aspect-ratio: 1 / 1;
   width: 50px;
+  background-size: cover;
+  position: absolute;
+  background-color: #0000;
+  border: none;
+  transition: 0.5s ease-in-out;
+  opacity: 0.5;
+  cursor: pointer;
+}
+#up {
+  background-image: url('./assets/textures/uparrow.png');
+  transform: translate(50px, -50px);
+}
+#up:active {
+  background-image: url('./assets/textures/uparrow_hover.png');
+  filter: brightness(0.7);
+}
+#down {
+  background-image: url('./assets/textures/downarrow.png');
+  transform: translate(50px, 0);
+}
+#down:active {
+  background-image: url('./assets/textures/downarrow_hover.png');
+  filter: brightness(0.7);
+}
+#left {
+  background-image: url('./assets/textures/leftarrow.png');
+  transform: translate(0, 0);
+}
+#left:active {
+  background-image: url('./assets/textures/leftarrow_hover.png');
+  filter: brightness(0.7);
+}
+#right {
+  background-image: url('./assets/textures/rightarrow.png');
+  transform: translate(100px, 0);
+}
+#right:active {
+  background-image: url('./assets/textures/rightarrow_hover.png');
+  filter: brightness(0.7);
 }

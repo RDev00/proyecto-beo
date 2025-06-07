@@ -3,15 +3,22 @@ import enemyLimit from '../enemys/enemyLimit.js';
 import metheorsLimit from '../metheors/metheorsLimit.js';
 import enemyColission from '../colissions/enemyColission.js';
 import metheorsColission from "../colissions/metheorsColission.js";
-import getVolume from "../../functions/getVolume.js"
+import getVolume from "../../functions/getVolume.js";
 
-const audio = new Audio('../assets/audio/game_song.m4a');
+let audio;
 
 export default function playerMove(player) {
-  audio.play();
-  const volume = getVolume();
-  audio.volume = (volume.general / 100) * (volume.sfx / 100);
-  let playerRect = player.getBoundingClientRect();
+  if (!audio) {
+    audio = new Audio('../assets/audio/game_song.m4a');
+    audio.loop = true;
+  }
+  if (audio.paused) {
+    const volume = getVolume();
+    audio.volume = (volume.general / 100) * (volume.sfx / 100);
+    audio.play();
+  }
+
+  const playerRect = player.getBoundingClientRect();
   let x = playerRect.x;
   let y = playerRect.y;
   const speed = 7;
@@ -21,7 +28,26 @@ export default function playerMove(player) {
   const playerHeight = player.offsetHeight;
   let animationId;
 
-  function movePlayer() {
+  if (!playerMove.listenersAdded) {
+    document.addEventListener('keyup', (event) => {
+      keysPressed.delete(event.key.toUpperCase());
+    });
+    document.addEventListener('keydown', (event) => {
+      keysPressed.add(event.key.toUpperCase());
+    });
+
+    ['up', 'left', 'down', 'right'].forEach((dir, i) => {
+      const input = ['W', 'A', 'S', 'D'][i];
+      const el = document.getElementById(dir);
+      if (el) {
+        el.addEventListener('touchstart', () => movePlayerMobile(input));
+      }
+    });
+
+    playerMove.listenersAdded = true;
+  }
+
+  function movePlayerPC() {
     const maxX = window.innerWidth - playerWidth;
     const maxY = window.innerHeight - playerHeight;
 
@@ -30,37 +56,48 @@ export default function playerMove(player) {
     if (keysPressed.has('A') || keysPressed.has('ARROWLEFT')) x -= speed;
     if (keysPressed.has('D') || keysPressed.has('ARROWRIGHT')) x += speed;
 
-    if (x < 0) x = 0;
-    if (y < 0) y = 0;
-    if (x > maxX) x = maxX;
-    if (y > maxY) y = maxY;
+    x = Math.min(Math.max(0, x), maxX);
+    y = Math.min(Math.max(0, y), maxY);
 
     player.style.transform = `translate(${x}px, ${y}px)`;
 
     let status = verifyStatus();
-    if(status === 'death') {
+    if (status === 'death') {
       cancelAnimationFrame(animationId);
       audio.pause();
-      document.getElementById('explosion').style.display = 'block';
-      document.getElementById('explosion').classList.add('explode');
+      const explosion = document.getElementById('explosion');
+      if (explosion) {
+        explosion.style.display = 'block';
+        explosion.classList.add('explode');
+      }
       return;
     }
 
-    animationId = requestAnimationFrame(movePlayer);
-    
     enemyLimit();
     enemyColission();
-    metheorLimit();
+    metheorsLimit();
     metheorsColission();
+
+    animationId = requestAnimationFrame(movePlayerPC);
   }
 
-  document.addEventListener('keydown', (event) => {
-    keysPressed.add(event.key.toUpperCase());
-  });
+  function movePlayerMobile(input) {
+    const maxX = window.innerWidth - playerWidth;
+    const maxY = window.innerHeight - playerHeight;
 
-  document.addEventListener('keyup', (event) => {
-    keysPressed.delete(event.key.toUpperCase());
-  });
+    switch (input) {
+      case 'W': y -= speed; break;
+      case 'A': x -= speed; break;
+      case 'S': y += speed; break;
+      case 'D': x += speed; break;
+      default: break;
+    }
 
-  animationId = requestAnimationFrame(movePlayer);
+    x = Math.min(Math.max(0, x), maxX);
+    y = Math.min(Math.max(0, y), maxY);
+
+    player.style.transform = `translate(${x}px, ${y}px)`;
+  }
+
+  animationId = requestAnimationFrame(movePlayerPC);
 }
