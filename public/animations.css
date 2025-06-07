@@ -25,8 +25,8 @@
 }
 
 @keyframes explode {
-  0% { transform: scale(1); opacity: 1; }
-  100% { transform: scale(1.5); opacity: 0; }
+  0% { transform: scale(1.5); opacity: 1; }
+  100% { transform: scale(2); opacity: 0; }
 }
 .explode {
   animation: explode 1.5s ease-in-out forwards;

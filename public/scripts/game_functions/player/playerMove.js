@@ -3,22 +3,26 @@ import enemyLimit from '../enemys/enemyLimit.js';
 import metheorsLimit from '../metheors/metheorsLimit.js';
 import enemyColission from '../colissions/enemyColission.js';
 import metheorsColission from "../colissions/metheorsColission.js";
-import getVolume from "../../functions/getVolume.js";
+import getVolume from "../../functions/getVolume.js"
 
-let audio;
+const audio = new Audio('../assets/audio/game_song.m4a');
+
+let isDead = false;
+let animationId;
+let mobileButtonsAdded = false;
+const mobileKeysPressed = new Set();
 
 export default function playerMove(player) {
-  if (!audio) {
-    audio = new Audio('../assets/audio/game_song.m4a');
-    audio.loop = true;
-  }
+  if (isDead) return;
+
+  audio.loop = true;
   if (audio.paused) {
     const volume = getVolume();
     audio.volume = (volume.general / 100) * (volume.sfx / 100);
     audio.play();
   }
 
-  const playerRect = player.getBoundingClientRect();
+  let playerRect = player.getBoundingClientRect();
   let x = playerRect.x;
   let y = playerRect.y;
   const speed = 7;
@@ -26,43 +30,33 @@ export default function playerMove(player) {
 
   const playerWidth = player.offsetWidth;
   const playerHeight = player.offsetHeight;
-  let animationId;
-
-  if (!playerMove.listenersAdded) {
-    document.addEventListener('keyup', (event) => {
-      keysPressed.delete(event.key.toUpperCase());
-    });
-    document.addEventListener('keydown', (event) => {
-      keysPressed.add(event.key.toUpperCase());
-    });
-
-    ['up', 'left', 'down', 'right'].forEach((dir, i) => {
-      const input = ['W', 'A', 'S', 'D'][i];
-      const el = document.getElementById(dir);
-      if (el) {
-        el.addEventListener('touchstart', () => movePlayerMobile(input));
-      }
-    });
-
-    playerMove.listenersAdded = true;
-  }
 
   function movePlayerPC() {
+    if (isDead) return;
+
     const maxX = window.innerWidth - playerWidth;
     const maxY = window.innerHeight - playerHeight;
-
+    
     if (keysPressed.has('W') || keysPressed.has('ARROWUP')) y -= speed;
     if (keysPressed.has('S') || keysPressed.has('ARROWDOWN')) y += speed;
     if (keysPressed.has('A') || keysPressed.has('ARROWLEFT')) x -= speed;
     if (keysPressed.has('D') || keysPressed.has('ARROWRIGHT')) x += speed;
 
-    x = Math.min(Math.max(0, x), maxX);
-    y = Math.min(Math.max(0, y), maxY);
+    if (mobileKeysPressed.has('W')) y -= speed;
+    if (mobileKeysPressed.has('S')) y += speed;
+    if (mobileKeysPressed.has('A')) x -= speed;
+    if (mobileKeysPressed.has('D')) x += speed;
+
+    if (x < 0) x = 0;
+    if (y < 0) y = 0;
+    if (x > maxX) x = maxX;
+    if (y > maxY) y = maxY;
 
     player.style.transform = `translate(${x}px, ${y}px)`;
 
     let status = verifyStatus();
-    if (status === 'death') {
+    if(status === 'death') {
+      isDead = true;
       cancelAnimationFrame(animationId);
       audio.pause();
       const explosion = document.getElementById('explosion');
@@ -81,22 +75,39 @@ export default function playerMove(player) {
     animationId = requestAnimationFrame(movePlayerPC);
   }
 
-  function movePlayerMobile(input) {
-    const maxX = window.innerWidth - playerWidth;
-    const maxY = window.innerHeight - playerHeight;
+  // Listeners para teclado (PC)
+  document.addEventListener('keyup', (event) => {
+    keysPressed.delete(event.key.toUpperCase());
+  });
+  document.addEventListener('keydown', (event) => {
+    keysPressed.add(event.key.toUpperCase());
+  });
 
-    switch (input) {
-      case 'W': y -= speed; break;
-      case 'A': x -= speed; break;
-      case 'S': y += speed; break;
-      case 'D': x += speed; break;
-      default: break;
-    }
-
-    x = Math.min(Math.max(0, x), maxX);
-    y = Math.min(Math.max(0, y), maxY);
-
-    player.style.transform = `translate(${x}px, ${y}px)`;
+  if (!mobileButtonsAdded) {
+    const buttons = [
+      { id: 'up', key: 'W' },
+      { id: 'left', key: 'A' },
+      { id: 'down', key: 'S' },
+      { id: 'right', key: 'D' },
+    ];
+    buttons.forEach(({ id, key }) => {
+      const el = document.getElementById(id);
+      if (el) {
+        el.addEventListener('touchstart', (e) => {
+          e.preventDefault();
+          mobileKeysPressed.add(key);
+        });
+        el.addEventListener('touchend', (e) => {
+          e.preventDefault();
+          mobileKeysPressed.delete(key);
+        });
+        el.addEventListener('touchcancel', (e) => {
+          e.preventDefault();
+          mobileKeysPressed.delete(key);
+        });
+      }
+    });
+    mobileButtonsAdded = true;
   }
 
   animationId = requestAnimationFrame(movePlayerPC);
