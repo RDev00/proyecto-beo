@@ -2,8 +2,10 @@ import verifyStatus from "./verifyStatus.js";
 import enemyLimit from '../enemys/enemyLimit.js';
 import enemyColission from '../colissions/enemyColission.js';
 import metheorsColission from "../colissions/metheorsColission.js";
+const audio = new Audio('../assets/audio/game_song.m4a');
 
 export default function playerMove(player) {
+  audio.play();
   let playerRect = player.getBoundingClientRect();
   let x = playerRect.x;
   let y = playerRect.y;
@@ -33,6 +35,7 @@ export default function playerMove(player) {
     let status = verifyStatus();
     if(status === 'death') {
       cancelAnimationFrame(animationId);
+      audio.pause();
       return;
     }
 

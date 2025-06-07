@@ -6,4 +6,6 @@ export default function closeOptions(options){
       options.style.display = 'none';
     }
   });
+  const audio = new Audio('../../assets/audio/click.mp3');
+  audio.play();
 }

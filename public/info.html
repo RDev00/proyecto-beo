@@ -1,11 +1,61 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Jersey+15&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="info.css">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Information</title>
+  <title>Informacion</title>
 </head>
 <body>
-  
+  <header>
+    <h1>Mathaxar</h1>
+    <div class="options">
+      <button><a href="/" class="link">Inicio</a></button>
+      <button><a href="/game" class="link">Juego</a></button>
+    </div>
+  </header>
+
+  <main>
+    <h1>Preguntas frecuentes</h1>
+    <section>
+      <img src="./assets/textures/player.png">
+      <h2>Como funciona Mathaxar?</h2>
+      <p>El juego consta sobre el poco conocido umbral del 95% junto al juego galaxar y sus mecanicas, las cuales son colisiones entre naves y meteoritos, tanto la opcion de disparar.</p>
+    </section>
+
+    <section>
+      <img src="./assets/textures/metheor.png">
+      <h2>Que es el umbral del 95%?</h2>
+      <p>El umbral del 95% habla sobre que 95% indica que las probabilidades contrarias son altas, aunque no lo parezcan, pues existe la probabilidad de que el evento pase, en este caso que puedas explotar.</p>
+    </section>
+
+    <section>
+      <img src="./assets/textures/enemy_01.png" class="img2">
+      <h2>Porque el juego es de codigo abierto?</h2>
+      <p>Esto es debido a que este proyecto, a pesar de ser uno hecho solo por mi, la verdad siento que el hecho de negar saber como hacer un juego con solo JS es muy egoista, por eso es preferente mostrar este posible avance sobre la creacion de juegos web optimizados.</p>
+    </section>
+
+    <section>
+      <img src="./assets/textures/enemy_02.png" class="img2">
+      <h2>Creditos</h2>
+      <p>
+        Sprites y musica del juego: RDev00 <br>
+        Sonido de click en la pagina principal: <a href="https://freesound.org/people/mokasza/sounds/810334/">keyboard button press - mokasza
+        </a> 
+      </p>
+    </section>
+  </main>
+
+  <footer>
+    Juego de libre uso y codigo abierto, puedes editarlo a tu gusto y usar partes del codigo o documentos y sprites del juego en tus proyectos, de manera libre.
+  </footer>
 </body>
+<script type="module">
+  const sfx = new Audio('../../assets/audio/click.mp3');
+  const buttons = document.getElementsByTagName('button');
+  buttons.forEach(button => { button.onclick = () => { sfx.play(); }  })
+</script>
 </html>

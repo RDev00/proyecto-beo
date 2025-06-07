@@ -2,30 +2,43 @@ localStorage.removeItem('status');
 localStorage.removeItem('points');
 localStorage.removeItem('probability');
 
+import metheorGeneration from './game_functions/metheors/metheorGeneration.js';
 import redirection from './functions/redirection.js';
+import particles from './game_functions/particles/particles.js';
+import playerMove from './game_functions/player/playerMove.js';
+import playerShoot from './game_functions/player/playerShoot.js';
+import enemyGeneration from './game_functions/enemys/enemyGeneration.js';
+import verifyStatus from './game_functions/player/verifyStatus.js';
 
 const back = document.getElementById('back');
-back.onclick = () => { redirection('../') }
 const restart = document.getElementById('restart');
-restart.onclick = () => { redirection('/game') }
-
-import particles from './game_functions/particles/particles.js';
-particles();
-
-import playerMove from './game_functions/player/playerMove.js';
 const player = document.getElementById('player');
-playerMove(player);
-
-import playerShoot from './game_functions/player/playerShoot.js';
 const map = document.getElementById('game');
-
+const blackscreen = document.getElementById('blackscreen');
+const sfx = new Audio('../../assets/audio/click.mp3');
+const start = document.getElementById('start');
 let enemys = document.getElementsByClassName('enemy');
 let metheors = document.getElementsByClassName('metheor');
+back.onclick = () => { redirection('../') };
+restart.onclick = () => { redirection('/game') };
 
-playerShoot(player, map, enemys, metheors);
+function startGame(){
+	particles();
+	playerMove(player);
+	playerShoot(player, map, enemys, metheors);
+	enemyGeneration();
+	metheorGeneration();
+}
 
-import enemyGeneration from './game_functions/enemys/enemyGeneration.js';
-enemyGeneration();
+function removeBlackScreen(){
+	sfx.play();
+	blackscreen.classList.add('hidden');
+	blackscreen.addEventListener('animationend', event => {
+		if(event.animationName === 'hideScreen'){
+			blackscreen.style.display = 'none';
+			startGame();
+		}
+	})
+}
 
-import metheorGeneration from './game_functions/metheors/metheorGeneration.js';
-metheorGeneration();
+start.onclick = () => { removeBlackScreen() };
