@@ -8,6 +8,8 @@ export default function enemyLimit() {
 			localStorage.setItem('status', 'death');
 	    deathmsg.style.display = 'flex';
 	    deathmsg.classList.add('showMenu');
+	    document.getElementById('explosion').style.display = 'block';
+	    document.getElementById('explosion').classList.add('explode');
 	    document.getElementById('points').innerText = `Puntaje: ${points}`;
 	    document.getElementById('probability').innerText = `Probabilidad: ${probability}%`;
 		}

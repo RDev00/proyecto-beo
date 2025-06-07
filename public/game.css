@@ -41,6 +41,14 @@ body { background-color: black; }
   left: 0;
   transform: translate(20vw, 50vh);
 }
+.playerexplosion {
+  display: none;
+  aspect-ratio: 1 / 1;
+  position: absolute;
+  width: 40px;
+  background-image: url('./assets/textures/explosion.png');
+  background-size: 120%;
+}
 .shoot {
   position: fixed;
   background-color: red;

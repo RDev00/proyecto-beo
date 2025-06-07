@@ -20,6 +20,8 @@ export default function enemyColission() {
       const deathmsg = document.getElementById('deathmsg');
       deathmsg.style.display = 'flex';
       deathmsg.classList.add('showMenu');
+      document.getElementById('explosion').style.display = 'block';
+      document.getElementById('explosion').classList.add('explode');
       document.getElementById('points').innerText = `Puntaje: ${points}`;
       document.getElementById('probability').innerText = `Probabilidad: ${probability}%`;
     }

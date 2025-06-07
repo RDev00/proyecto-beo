@@ -1,5 +1,6 @@
 import verifyStatus from "./verifyStatus.js";
 import enemyLimit from '../enemys/enemyLimit.js';
+import metheorsLimit from '../metheors/metheorsLimit.js';
 import enemyColission from '../colissions/enemyColission.js';
 import metheorsColission from "../colissions/metheorsColission.js";
 import getVolume from "../../functions/getVolume.js"
@@ -40,6 +41,8 @@ export default function playerMove(player) {
     if(status === 'death') {
       cancelAnimationFrame(animationId);
       audio.pause();
+      document.getElementById('explosion').style.display = 'block';
+      document.getElementById('explosion').classList.add('explode');
       return;
     }
 
@@ -47,6 +50,7 @@ export default function playerMove(player) {
     
     enemyLimit();
     enemyColission();
+    metheorLimit();
     metheorsColission();
   }
 
