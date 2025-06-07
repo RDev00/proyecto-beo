@@ -9,6 +9,7 @@ import playerMove from './game_functions/player/playerMove.js';
 import playerShoot from './game_functions/player/playerShoot.js';
 import enemyGeneration from './game_functions/enemys/enemyGeneration.js';
 import verifyStatus from './game_functions/player/verifyStatus.js';
+import getVolume from './functions/getVolume.js';
 
 const back = document.getElementById('back');
 const restart = document.getElementById('restart');
@@ -32,6 +33,8 @@ function startGame(){
 
 function removeBlackScreen(){
 	sfx.play();
+  const volume = getVolume();
+  sfx.volume = (volume.general * 0.01) * (volume.sfx * 0.01);
 	blackscreen.classList.add('hidden');
 	blackscreen.addEventListener('animationend', event => {
 		if(event.animationName === 'hideScreen'){

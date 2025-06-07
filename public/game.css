@@ -9,9 +9,27 @@ body { background-color: black; }
 .button {
   aspect-ratio: 1 / 1;
   width: 25px;
-  background-color: #0000;
+  background-color: rgba(255, 255, 255, 0.3);
   border: none;
   color: white;
+  z-index: 99999;
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  background-image: url('./assets/textures/home.png');
+  background-size: 130%;
+  background-position: center;
+  transition: 250ms ease-in-out;
+  border-radius: 10px;
+  filter: invert();
+  opacity: 0.7;
+}
+.button:hover {
+  transform: scale(1.1);
+  opacity: 1;
+}
+.button:active {
+  filter: invert() brightness(0.7);
 }
 .player {
   aspect-ratio: 1 / 1;
@@ -113,7 +131,7 @@ body { background-color: black; }
   align-items: center;
   gap: 20px;
   color: white;
-  z-index: 9999;
+  z-index: 99;
   background-color: black;
 }
 .blackscreen h1 {

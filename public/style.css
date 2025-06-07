@@ -41,6 +41,10 @@
 .option-button:hover {
   transform: scale(1.1);
 }
+.option-button:active {
+  background-color: white;
+  color: black;
+}
 .ad {
   position: fixed;
   bottom: 5px;
@@ -90,6 +94,10 @@
   width: 14%;
   border: none;
   background-color: #0000;
+}
+.volumeButton img {
+  aspect-ratio: 1 / 1;
+  width: 90%;
 }
 .buttonsMenu {
   width: 99%;

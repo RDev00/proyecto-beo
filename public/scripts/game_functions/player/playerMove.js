@@ -2,10 +2,14 @@ import verifyStatus from "./verifyStatus.js";
 import enemyLimit from '../enemys/enemyLimit.js';
 import enemyColission from '../colissions/enemyColission.js';
 import metheorsColission from "../colissions/metheorsColission.js";
+import getVolume from "../../functions/getVolume.js"
+
 const audio = new Audio('../assets/audio/game_song.m4a');
 
 export default function playerMove(player) {
   audio.play();
+  const volume = getVolume();
+  audio.volume = (volume.general / 100) * (volume.sfx / 100);
   let playerRect = player.getBoundingClientRect();
   let x = playerRect.x;
   let y = playerRect.y;
