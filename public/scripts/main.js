@@ -2,7 +2,7 @@ import redirection from "./functions/redirection.js";
 
 const startButton = document.getElementById('start');
 
-startButton.onclick = () => redirection('/game.html');
+startButton.onclick = () => redirection('/game');
 
 import closeOptions from './functions/closeOptions.js';
 import openOptions from './functions/openOptions.js';
@@ -39,7 +39,7 @@ generalQuit.onclick = () => {
 	quitSound("general");
 	const volume = getVolume();
 	generalInput.value = volume.general;
-  const audio = new Audio('../assets/audio/click.mp3');
+	const audio = new Audio('../assets/audio/click.mp3');
   audio.volume = (volume.general / 100) * (volume.sfx / 100);
   audio.play();
 }

@@ -20,8 +20,8 @@ const sfx = new Audio('../../assets/audio/click.mp3');
 const start = document.getElementById('start');
 let enemys = document.getElementsByClassName('enemy');
 let metheors = document.getElementsByClassName('metheor');
-back.onclick = () => { redirection('/index.html') };
-restart.onclick = () => { redirection('/game.html') };
+back.onclick = () => { redirection('/') };
+restart.onclick = () => { redirection('/game') };
 
 function startGame(){
 	particles();
