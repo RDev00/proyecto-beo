@@ -16,7 +16,8 @@ export default function verifySize() {
 		sizes.mobile_others === screenRatio ||
 		sizes.mobile_old === screenRatio ||
 		sizes.pc === screenRatio ||
-		sizes.pc_old === screenRatio
+		sizes.pc_old === screenRatio|| 
+		(screenRatio >= 2.4	&& screenRatio <= 2.8)
 	);
 
 	if (verifyScreenSize) {

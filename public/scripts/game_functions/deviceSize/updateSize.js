@@ -9,7 +9,6 @@ export default function updateSize(){
 		msg.style.display = 'block';
 	}
 	window.addEventListener('resize', e => {
-		window.location.reload();
 		compatibility = verifySize();
 		if (compatibility === false) {
 			button.classList.add('disabled');
