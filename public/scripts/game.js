@@ -10,6 +10,7 @@ import playerShoot from './game_functions/player/playerShoot.js';
 import enemyGeneration from './game_functions/enemys/enemyGeneration.js';
 import verifyStatus from './game_functions/player/verifyStatus.js';
 import getVolume from './functions/getVolume.js';
+import updateSize from './game_functions/deviceSize/updateSize.js';
 
 const back = document.getElementById('back');
 const restart = document.getElementById('restart');
@@ -22,6 +23,8 @@ let enemys = document.getElementsByClassName('enemy');
 let metheors = document.getElementsByClassName('metheor');
 back.onclick = () => { redirection('/') };
 restart.onclick = () => { redirection('/game') };
+
+updateSize();
 
 function startGame(){
 	particles();

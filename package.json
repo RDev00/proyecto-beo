@@ -1,7 +1,7 @@
 {
   "name": "proyecto-beo",
-  "version": "0.0.0",
-  "description": "-----------------",
+  "version": "1.0.0",
+  "description": "proyecto hecho por RDev00",
   "main": "index.js",
   "scripts": {
     "build": "npm install express nodemon path",

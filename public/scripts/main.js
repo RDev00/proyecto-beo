@@ -21,12 +21,18 @@ const generalQuit = document.getElementById('quitGeneral');
 const ambientQuit = document.getElementById('quitAmbient');
 const sfxQuit = document.getElementById('quitSfx');
 
-const volume = getVolume();
+let volume = getVolume();
 generalInput.value = volume.general;
 ambientInput.value = volume.ambient;
 sfxInput.value = volume.sfx;
 
-exit.onclick = () => closeOptions(menu);
+exit.onclick = () => {
+	closeOptions(menu);
+	volume = getVolume();
+	generalInput.value = volume.general;
+	ambientInput.value = volume.ambient;
+	sfxInput.value = volume.sfx;
+};
 save.onclick = () => {
 	getSound(generalInput, "general");
 	getSound(ambientInput, "ambient");
